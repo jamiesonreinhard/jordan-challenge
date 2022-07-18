@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import '../App.css';
 import styled from 'styled-components';
+import Modal from './Modal';
 
 const Contacts = ({contacts}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <div className="container">
+            {modalOpen && <Modal exit={() => setModalOpen(false)}/>}
             <Menu>
                 <input type='text' name='contactSearch'></input>
                 <button onClick={() => setModalOpen(true)}>New Contact</button>
