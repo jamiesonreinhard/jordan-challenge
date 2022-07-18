@@ -2,7 +2,24 @@ import React, {useState} from 'react';
 import '../App.css';
 import styled from 'styled-components';
 
-const Modal = ({exit}) => {
+const Modal = ({exit, addContact}) => {
+    const [inputContact, setInputContact] = useState({
+      first_name: '',
+      last_name: '',
+      email: '',
+    })
+
+    const changeHandler = (e) => {
+      e.preventDefault();
+      inputContact[e.target.name] = e.target.value;
+      setInputContact({...inputContact})
+    }
+
+    const submitContact = (e) => {
+      e.preventDefault();
+      addContact(inputContact);
+      exit();
+    }
 
     return (
       <>
@@ -10,10 +27,12 @@ const Modal = ({exit}) => {
           <StyledModal>
             <h1 onClick={exit}>X</h1>
             <h3>Details</h3>
-            <input type="text" name="first" placeHolder="First Name" required></input>
-            <input type="text" name="last" placeHolder="Last Name" required></input>
-            <input type="text" name="email" placeHolder="Email" required></input>
-            <button>Create</button>
+            <form onSubmit={(e) => submitContact(e)}>
+              <input type="text" name="first_name" placeholder="First Name" required onChange={(e) => changeHandler(e)}/>
+              <input type="text" name="last_name" placeholder="Last Name" required/>
+              <input type="email" name="email" placeholder="Email" required/>
+              <input type="submit" value="Create Contact"/>
+            </form>
           </StyledModal>
       </>
     );
@@ -42,4 +61,9 @@ const StyledModal = styled.div`
 
   display:flex;
   flex-direction: column;
+
+  form {
+    display:flex;
+  flex-direction: column;
+  }
 `;

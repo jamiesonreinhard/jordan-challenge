@@ -3,12 +3,12 @@ import '../App.css';
 import styled from 'styled-components';
 import Modal from './Modal';
 
-const Contacts = ({contacts}) => {
+const Contacts = ({contacts, addContact}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <div className="container">
-            {modalOpen && <Modal exit={() => setModalOpen(false)}/>}
+            {modalOpen && <Modal exit={() => setModalOpen(false)} addContact={addContact}/>}
             <Menu>
                 <input type='text' name='contactSearch'></input>
                 <button onClick={() => setModalOpen(true)}>New Contact</button>

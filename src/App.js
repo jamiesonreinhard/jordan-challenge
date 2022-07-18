@@ -20,7 +20,11 @@ const App = () => {
       .then(response => response.json())
       .then(data => setContacts(data))
       .catch(() => console.log('unable to load contacts!'));
-  }, [])
+  }, []);
+
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
+  }
 
   return (
     <Router>
@@ -29,7 +33,7 @@ const App = () => {
       </div>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contacts" element={<Contacts contacts={contacts} />} />
+          <Route path="/contacts" element={<Contacts contacts={contacts} addContact={addContact}/>} />
         </Routes>
     </Router>
   );
