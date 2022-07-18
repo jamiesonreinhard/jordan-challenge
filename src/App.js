@@ -20,7 +20,7 @@ const App = () => {
   return (
     <Router>
       <div className='App'>
-        <Nav />
+        <Nav user={user}/>
       </div>
       <Routes>
           <Route path="/" element={<Home />} />
