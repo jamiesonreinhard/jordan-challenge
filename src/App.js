@@ -12,9 +12,14 @@ import userData from './data/user';
 
 const App = () => {
   const [user, setUser] = useState({});
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    setUser(userData)
+    setUser(userData);
+    fetch('https://random-data-api.com/api/users/random_user?size=20')
+      .then(response => response.json())
+      .then(data => setContacts(data))
+      .catch(() => console.log('unable to load contacts!'));
   }, [])
 
   return (
@@ -24,7 +29,7 @@ const App = () => {
       </div>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/contacts" element={<Contacts contacts={contacts} />} />
         </Routes>
     </Router>
   );
