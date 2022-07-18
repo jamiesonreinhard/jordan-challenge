@@ -7,6 +7,7 @@ const Modal = ({exit, addContact}) => {
       first_name: '',
       last_name: '',
       email: '',
+      avatar: undefined,
     })
 
     const changeHandler = (e) => {
@@ -29,8 +30,8 @@ const Modal = ({exit, addContact}) => {
             <h3>Details</h3>
             <form onSubmit={(e) => submitContact(e)}>
               <input type="text" name="first_name" placeholder="First Name" required onChange={(e) => changeHandler(e)}/>
-              <input type="text" name="last_name" placeholder="Last Name" required/>
-              <input type="email" name="email" placeholder="Email" required/>
+              <input type="text" name="last_name" placeholder="Last Name" required onChange={(e) => changeHandler(e)}/>
+              <input type="email" name="email" placeholder="Email" required onChange={(e) => changeHandler(e)}/>
               <input type="submit" value="Create Contact"/>
             </form>
           </StyledModal>
@@ -64,6 +65,6 @@ const StyledModal = styled.div`
 
   form {
     display:flex;
-  flex-direction: column;
+    flex-direction: column;
   }
 `;

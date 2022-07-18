@@ -16,7 +16,11 @@ const Contacts = ({contacts, addContact}) => {
             <ContactsContainer>
             {contacts.length && contacts.map((contact) => (
                 <ContactCard key={contact.id}>
-                    <img src={contact.avatar} alt='avatar'/>
+                    {contact.avatar ? <img src={contact.avatar} alt='avatar'/> :
+                        <FakeAvatar>
+                            <h1>{contact.first_name[0]}</h1>
+                        </FakeAvatar>
+                    }
                     <h3>{contact.first_name + ' ' + contact.last_name}</h3>
                 </ContactCard>
             ))}
@@ -88,4 +92,12 @@ const ContactCard = styled.div`
         height:auto;
         margin-bottom: 5px;
     }
+`;
+
+const FakeAvatar = styled.div`
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 5px;
+        background-color: red;
 `;

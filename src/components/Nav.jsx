@@ -11,7 +11,9 @@ import styled from 'styled-components';
 const Nav = ({user}) => {
     //I used a page state to keep track of what page we're on and gave a name prop to each link to know what name each link represents
     //Then, StyledComponents looks at the prop to determine if the current page and name of each link match, changing the style based
-    //on that result!
+    //on that result! However, this will cause a refresh on the page to not display the proper link in bold since it is based on a prop.
+    //A proper solution would utilize information from the React Router to always determine the current page, which I would need more time
+    // to properly implement.
 
     const [page, setPage] = useState('Home');
 
