@@ -1,0 +1,41 @@
+body {
+  background-color: #fcfcfc !important;
+}
+
+.App {
+  position: relative;
+  width: 100%;
+  font-family: 'BeausiteClassic';
+}
+
+.container {
+  width: 1080px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* fonts */
+
+@font-face {
+  font-family: 'BeausiteClassic';
+  src: url('./assets/fonts/BeausiteClassicWeb-Regular.woff2') format('woff2'),
+  url('./assets/fonts/BeausiteClassicWeb-Regular.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BeausiteClassic';
+  src: url('./assets/fonts/BeausiteClassicWeb-Bold.woff2') format('woff2'),
+  url('./assets/fonts/BeausiteClassicWeb-Bold.woff') format('woff'); 
+  font-weight: 700;
+  font-style: normal;
+} 
+@font-face {
+  font-family: 'BeausiteClassic';
+  src: url('./assets/fonts/BeausiteClassicWeb-RegularItalic.woff2') format('woff2'),
+  url('./assets/fonts/BeausiteClassicWeb-RegularItalic.woff') format('woff'); 
+  font-weight: normal;
+  font-style: italic;
+}
